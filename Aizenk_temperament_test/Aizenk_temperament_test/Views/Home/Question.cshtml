@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+@model Aizenk_temperament_test.ViewModels.QuestionViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+
+    <script src="@Url.Content("~/Scripts/jquery-3.1.1.js")"
+            type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")"
+            type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")"
+            type="text/javascript"></script>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>@Model.Question.Id. @Model.Question.Text</p>
+            <p>Да @Html.RadioButtonFor(a => Model.Answer, true)</p>
+            <p>Нет @Html.RadioButtonFor(a => Model.Answer, false)</p>
+            @Html.ValidationMessageFor(m => m.Answer)
+
+            <p>@Html.HiddenFor(q => Model.Question.Id)</p>
+
+            <input type="submit" , value="Дальше" >
+        }
+
+
+    </div>
+ 
+
+</body>
+</html>
